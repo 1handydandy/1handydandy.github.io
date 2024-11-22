@@ -1,0 +1,1092 @@
+<html><head><base href="https://example.com/">
+<style>
+:root {
+  --main-bg-color: #FF8C00;
+  --main-text-color: #40E0D0;
+  --accent-color: #FF4500;
+  --hover-color: #20B2AA;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;  /* Change base font to Montserrat */
+}
+
+body {
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+}
+
+nav {
+  background-color: rgba(0,0,0,0.8);
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 2rem;
+}
+
+nav a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--main-text-color);
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--hover-color);
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(45deg, var(--main-bg-color), var(--accent-color));
+}
+
+.hero h1 {
+  animation: glow 2s ease-in-out infinite, float 3s ease-in-out infinite;
+  text-shadow: 0 0 20px rgba(64, 224, 208, 0.8);
+  font-size: 5rem;
+  letter-spacing: 2px;
+}
+
+.content-section {
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  background: linear-gradient(
+    45deg,
+    var(--main-bg-color),
+    var(--accent-color),
+    var(--hover-color)
+  );
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.service-card {
+  background: linear-gradient(145deg, rgba(0,0,0,0.1), rgba(0,0,0,0.2));
+  border-left: 4px solid var(--accent-color);
+  padding: 2rem;
+  border-radius: 15px;
+  margin: 1rem;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: left;
+  transform: perspective(1000px) rotateX(0deg);
+}
+
+.service-card h2,
+.service-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.service-card:hover {
+  transform: perspective(1000px) rotateX(2deg) translateY(-10px);
+  background: linear-gradient(145deg, rgba(0,0,0,0.2), rgba(0,0,0,0.3));
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.service-card h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(45deg, var(--main-text-color), var(--hover-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.service-card ul {
+  margin-left: 1.5rem;
+}
+
+.service-card li {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  transform: translateX(0);
+  transition: all 0.3s ease;
+}
+
+.service-card li:hover {
+  transform: translateX(15px);
+  background: rgba(255,255,255,0.2);
+}
+
+.service-card small {
+  color: var(--hover-color);
+  font-style: italic;
+}
+
+.testimonial {
+  background: rgba(255,255,255,0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+}
+
+.testimonial cite {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 500;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 10px rgba(64, 224, 208, 0.5); }
+  50% { text-shadow: 0 0 20px rgba(64, 224, 208, 0.8); }
+  100% { text-shadow: 0 0 10px rgba(64, 224, 208, 0.5); }
+}
+
+.cta-button {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin: 1rem 0;
+}
+
+.cta-button:hover {
+  transform: scale(1.1);
+}
+
+.page {
+  display: none;
+  padding-top: 80px;
+}
+
+.page.active {
+  display: block;
+}
+
+.blog-post {
+  background: rgba(255,255,255,0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  margin: 1rem 0;
+}
+
+.career-listing {
+  background: rgba(255,255,255,0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  margin: 1rem 0;
+}
+
+.service-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+footer {
+  background: rgba(0,0,0,0.8);
+  padding: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.chat-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.chat-button {
+  background: var(--accent-color);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.chat-button:hover {
+  transform: scale(1.1);
+}
+
+.chat-window {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 350px;
+  height: 500px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-window.active {
+  display: flex;
+}
+
+.chat-header {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  background: var(--accent-color);
+  color: white;
+  padding: 15px;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: #f5f5f5;
+}
+
+.chat-input-container {
+  padding: 15px;
+  background: white;
+  border-top: 1px solid #eee;
+  display: flex;
+}
+
+.chat-input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+.chat-send {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.blog-post ul {
+  list-style: none;
+  margin: 1rem 0;
+}
+
+.blog-post h2,
+.blog-post h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+}
+
+.blog-post p,
+.blog-post li {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.8;
+}
+
+.blog-post li {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border-left: 3px solid var(--accent-color);
+  background: rgba(255,255,255,0.1);
+}
+
+.blog-post a {
+  color: var(--main-text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.blog-post a:hover {
+  color: var(--hover-color);
+  text-decoration: underline;
+}
+
+.application-form {
+  background: rgba(255,255,255,0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  margin: 2rem 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--main-text-color);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.9);
+  color: #333;
+  font-size: 1rem;
+}
+
+.form-group input[type="file"] {
+  background: transparent;
+  padding: 0.5rem 0;
+  border: none;
+  color: var(--main-text-color);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(255,69,0,0.2);
+}
+
+#applicationForm {
+  display: block !important;
+}
+
+.service-card ul {
+  list-style: none;
+  margin: 1rem 0;
+}
+
+.service-card li {
+  margin: 1rem 0;
+  padding: 0.8rem;
+  border-left: 3px solid var(--accent-color);
+  background: rgba(255,255,255,0.1);
+  transition: transform 0.3s ease;
+}
+
+.service-card li:hover {
+  transform: translateX(10px);
+  background: rgba(255,255,255,0.2);
+}
+
+.service-card small {
+  display: block;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.9em;
+  margin-top: 0.3rem;
+}
+
+.service-card p strong {
+  color: var(--hover-color);
+  font-size: 1.1em;
+}
+
+.service-card a.cta-button {
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.contact-form-container {
+  background: rgba(255,255,255,0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  margin: 2rem auto;
+  max-width: 800px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.contact-form-container h2 {
+  color: var(--main-text-color);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+}
+
+.contact-direct {
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.contact-direct a {
+  color: var(--hover-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.contact-direct a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>1 Handy Dandy Service - Professional Cleaning Services</title>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#careers">Careers</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+  </ul>
+</nav>
+
+<div id="home" class="page active">
+  <div class="hero">
+    <h1>1 Handy Dandy Service</h1>
+    <p>Your Premier Cleaning Solution for Residential, Commercial & Trash Can Services</p>
+    <img src="https://cleaning-services-today.com/hero-team.jpg" alt="Professional cleaning team in branded uniforms using modern equipment, bright lighting" width="800" height="600">
+    <button class="cta-button">Get Your Free Quote Today!</button>
+    
+    <div class="contact-form-container">
+      <h2>Contact Us Today</h2>
+      <p>Let us transform your space into an immaculate sanctuary</p>
+      <p class="contact-direct">
+        Call us: <a href="tel:1-800-HANDY1">1-800-HANDY1</a><br>
+        Email: <a href="mailto:info@handydandyservice.com">info@handydandyservice.com</a>
+      </p>
+      
+      <form id="contactForm" action="https://api.handydandyservice.com/contact" method="POST" class="application-form">
+        <div class="form-group">
+          <label for="contactName">Full Name*</label>
+          <input type="text" id="contactName" name="contactName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="contactEmail">Email*</label>
+          <input type="email" id="contactEmail" name="contactEmail" required>
+        </div>
+
+        <div class="form-group">
+          <label for="contactPhone">Phone Number*</label>
+          <input type="tel" id="contactPhone" name="contactPhone" required>
+        </div>
+
+        <div class="form-group">
+          <label for="serviceType">Service Interested In*</label>
+          <select id="serviceType" name="serviceType" required>
+            <option value="">Select a service</option>
+            <option value="residential">Residential Cleaning</option>
+            <option value="commercial">Commercial Cleaning</option>
+            <option value="trash-bins">Trash Bin Cleaning</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message*</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="cta-button">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="about" class="page">
+  <div class="content-section">
+    <h1>About 1 Handy Dandy Service</h1>
+    <img src="https://cleaning-experts.com/team-cleaning.jpg" alt="Diverse cleaning team members performing commercial office cleaning with eco-friendly supplies" width="800" height="600">
+    
+    <div class="service-card">
+      <h2>Our Legacy of Excellence</h2>
+      <p>Since our establishment in 2017, 1 Handy Dandy Service has revolutionized the cleaning industry through innovation, dedication, and an unwavering commitment to excellence. What began as a visionary venture has blossomed into a powerhouse of professional cleaning services, setting new standards in our industry and transforming countless spaces into pristine environments.</p>
+    </div>
+
+    <div class="service-card">
+      <h2>Environmental Stewardship</h2>
+      <p>At the heart of our mission lies a profound commitment to environmental sustainability. We're not just cleaning spaces – we're protecting our planet's future through:</p>
+      <ul>
+        <li>100% Biodegradable Cleaning Solutions
+          <br><small>Custom-formulated, plant-based cleaners that leave zero harmful residues</small>
+        </li>
+        <li>Water Conservation Technology
+          <br><small>Advanced equipment reducing water usage by up to 65% compared to traditional methods</small>
+        </li>
+        <li>Zero-Waste Initiative
+          <br><small>Comprehensive recycling program and minimal packaging waste</small>
+        </li>
+        <li>Energy-Efficient Operations
+          <br><small>Solar-powered facilities and electric vehicle fleet</small>
+        </li>
+        <li>Green Certification
+          <br><small>Proud bearer of LEED, Green Seal, and EPA Safer Choice certifications</small>
+        </li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <h2>Our Distinguished Team</h2>
+      <p>Behind every spotless surface stands an elite team of cleaning artisans. Our professionals undergo rigorous 200+ hours of specialized training, including:</p>
+      <ul>
+        <li>Advanced Cleaning Techniques
+          <br><small>Mastery of cutting-edge equipment and methodologies</small>
+        </li>
+        <li>Environmental Safety Protocols
+          <br><small>Extensive training in eco-friendly practices</small>
+        </li>
+        <li>Customer Service Excellence
+          <br><small>Dedicated to exceeding expectations with every interaction</small>
+        </li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <h2>Innovation & Technology</h2>
+      <p>We leverage state-of-the-art technology to deliver superior results:</p>
+      <ul>
+        <li>IoT-Enabled Equipment
+          <br><small>Real-time monitoring and optimization of cleaning processes</small>
+        </li>
+        <li>UV-C Sanitization
+          <br><small>Advanced germicidal technology for maximum sterilization</small>
+        </li>
+        <li>Smart Scheduling System
+          <br><small>AI-powered service optimization for perfect timing</small>
+        </li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <h2>Community Impact</h2>
+      <p>Our commitment extends beyond cleaning services. We're proud to:</p>
+      <ul>
+        <li>Create Local Jobs
+          <br><small>Providing over 200 sustainable career opportunities</small>
+        </li>
+        <li>Support Environmental Initiatives
+          <br><small>Annual tree planting and waterway cleanup programs</small>
+        </li>
+        <li>Educational Outreach
+          <br><small>Free eco-friendly cleaning workshops for communities</small>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="services" class="page">
+  <div class="content-section">
+    <h1>Our Services</h1>
+    <img src="https://professional-cleaning.com/services-showcase.jpg" alt="Split view showing residential cleaning, commercial cleaning, and specialized bin cleaning services in action" width="800" height="600">
+    <div class="service-details">
+      <div class="service-card">
+        <h3>Premium Residential Services</h3>
+        <p>Experience the epitome of luxury cleaning with our white-glove residential services:</p>
+        <ul>
+          <li>Estate Cleaning - $500-800
+            <br><small>Complete luxury home detailing with premium organic products and specialized equipment</small>
+          </li>
+          <li>Smart Home Integration - $200 addon
+            <br><small>IoT-enabled cleaning monitoring and real-time air quality management</small>
+          </li>
+        </ul>
+        <p><strong>Package Deals:</strong></p>
+        <ul>
+          <li>Monthly Service Plan - 10% off regular rates</li>
+          <li>First-Time Customer Special - 15% off first deep clean</li>
+        </ul>
+        <a href="https://handydandyservice.com/book-residential" class="cta-button">Schedule Residential Service</a>
+      </div>
+
+      <div class="service-card">
+        <h3>Commercial Cleaning</h3>
+        <p>Professional solutions for businesses:</p>
+        <ul>
+          <li>Office Cleaning - From $0.12/sq ft
+            <br><small>Daily/weekly maintenance of workspaces, lobbies, bathrooms</small>
+          </li>
+          <li>Retail Space - From $0.15/sq ft
+            <br><small>Store cleaning, floor care, display dusting</small>
+          </li>
+          <li>Industrial Cleaning - Custom Quote
+            <br><small>Warehouse, manufacturing facility cleaning</small>
+          </li>
+          <li>Medical Facility - From $0.20/sq ft
+            <br><small>Specialized sanitization meeting healthcare standards</small>
+          </li>
+          <li>Restaurant Cleaning - From $200/visit
+            <br><small>Kitchen, dining area, hood cleaning services</small>
+          </li>
+        </ul>
+        <p><strong>Contract Benefits:</strong></p>
+        <ul>
+          <li>Annual Contract - 15% discount</li>
+          <li>Quarterly Deep Clean included</li>
+        </ul>
+        <a href="https://handydandyservice.com/commercial-quote" class="cta-button">Get Commercial Quote</a>
+      </div>
+
+      <div class="service-card">
+        <h3>Trash Can Cleaning</h3>
+        <p>Specialized bin cleaning services:</p>
+        <ul>
+          <li>Residential Bins
+            <br>- Single Bin: $35/clean
+            <br>- Additional Bins: $15/each
+            <br><small>Includes pressure washing, sanitizing, deodorizing</small>
+          </li>
+          <li>Commercial Dumpsters
+            <br>- Small (2-4 yard): $85/clean
+            <br>- Large (6-8 yard): $150/clean
+            <br><small>Complete sanitization and deodorizing treatment</small>
+          </li>
+          <li>Monthly Service Plans
+            <br>- Residential: From $25/bin/month
+            <br>- Commercial: From $75/dumpster/month
+            <br><small>Regular scheduled cleaning & maintenance</small>
+          </li>
+        </ul>
+        <p><strong>Special Services:</strong></p>
+        <ul>
+          <li>HOA/Property Management bulk rates available</li>
+          <li>Emergency cleaning service available</li>
+        </ul>
+        <a href="https://handydandyservice.com/bin-cleaning" class="cta-button">Schedule Bin Cleaning</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="careers" class="page">
+  <div class="content-section">
+    <h1>Join Our Team</h1>
+    <img src="https://cleaning-careers.com/team-culture.jpg" alt="Happy cleaning professionals working together, showcasing company culture and teamwork" width="800" height="600">
+    <div class="career-listing">
+      <h2>Current Openings</h2>
+      <div class="service-card">
+        <h3>Cleaning Agent</h3>
+        <p>Join our team as a Cleaning Agent and be part of delivering excellence in residential and commercial cleaning services.</p>
+        <ul>
+          <li>Perform detailed cleaning tasks according to company standards</li>
+          <li>Operate professional cleaning equipment and use approved cleaning solutions</li>
+          <li>Follow safety protocols and maintain a clean, organized work environment</li>
+          <li>Provide exceptional customer service and maintain professional communication</li>
+          <li>Full-time and part-time positions available</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <h3>Crew Leader</h3>
+        <p>Lead and inspire a team of cleaning professionals while ensuring superior service delivery.</p>
+        <ul>
+          <li>Supervise and coordinate cleaning teams on-site</li>
+          <li>Train new team members on procedures and standards</li>
+          <li>Quality control and customer satisfaction management</li>
+          <li>Schedule coordination and resource allocation</li>
+          <li>Minimum 2 years cleaning experience required</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <h3>Department Supervisor</h3>
+        <p>Take charge of entire service departments and drive operational excellence.</p>
+        <ul>
+          <li>Oversee multiple cleaning crews and crew leaders</li>
+          <li>Develop and implement training programs</li>
+          <li>Manage department budgets and resources</li>
+          <li>Ensure compliance with safety regulations and company policies</li>
+          <li>Minimum 5 years industry experience with 2+ years in management</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <h3>Career Growth & Benefits</h3>
+        <ul>
+          <li>Comprehensive Health Insurance
+            <br><small>Full medical, dental, and vision coverage</small>
+          </li>
+          <li>Professional Development
+            <br><small>Paid certifications and advancement opportunities</small>
+          </li>
+          <li>Performance Bonuses
+            <br><small>Quarterly incentives and recognition programs</small>
+          </li>
+          <li>Wellness Programs
+            <br><small>Gym memberships and mental health support</small>
+          </li>
+        </ul>
+      </div>
+
+      <div id="applicationForm" class="application-form">
+        <h3>Job Application Form</h3>
+        <form id="jobApplication" action="https://api.handydandyservice.com/applications" method="POST">
+          <div class="form-group">
+            <label for="position">Position*</label>
+            <select id="position" name="position" required>
+              <option value="">Select a position</option>
+              <option value="cleaning-agent">Cleaning Agent</option>
+              <option value="crew-leader">Crew Leader</option>
+              <option value="dept-supervisor">Department Supervisor</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="fullName">Full Name*</label>
+            <input type="text" id="fullName" name="fullName" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email*</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number*</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Address</label>
+            <textarea id="address" name="address" rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="experience">Years of Experience*</label>
+            <input type="number" id="experience" name="experience" min="0" required>
+          </div>
+
+          <div class="form-group">
+            <label for="resume">Upload Resume (PDF only)*</label>
+            <input type="file" id="resume" name="resume" accept=".pdf" required>
+          </div>
+
+          <div class="form-group">
+            <label for="coverLetter">Cover Letter</label>
+            <textarea id="coverLetter" name="coverLetter" rows="5"></textarea>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="cta-button">Submit Application</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="blog" class="page">
+  <div class="content-section">
+    <h1>Cleaning Tips & Industry News</h1>
+    <img src="https://cleaning-insights.com/cleaning-tips.jpg" alt="Professional demonstrating advanced cleaning techniques with modern equipment" width="800" height="600">
+    <div class="blog-post">
+      <h2>Latest Industry News & Articles</h2>
+      
+      <div class="service-card">
+        <h3>Industry Leadership & Innovation</h3>
+        <ul>
+          <li><a href="https://www.cleaningbusinesstoday.com/blog">Latest Cleaning Technology Breakthroughs</a>
+            <br><small>Discover cutting-edge innovations reshaping the industry</small>
+          </li>
+          <li><a href="https://www.issa.com/certification-standards">New Cleaning Standards & Certifications</a>
+            <br><small>Stay ahead with industry-leading certifications</small>
+          </li>
+        </ul>
+        <button class="cta-button">View All News</button>
+      </div>
+
+      <div class="service-card">
+        <h3>Professional Cleaning Guides</h3>
+        <ul>
+          <li><a href="https://www.cdc.gov/hygiene/cleaning/index.html">CDC Cleaning & Disinfecting Guidelines</a></li>
+          <li><a href="https://www.epa.gov/saferchoice">EPA Safer Choice Cleaning Products</a></li>
+          <li><a href="https://www.who.int/publications/i/item/cleaning-and-disinfection-of-environmental-surfaces-inthe-context-of-covid-19">WHO Environmental Cleaning Best Practices</a></li>
+        </ul>
+        <button class="cta-button">Read More</button>
+      </div>
+
+      <div class="service-card">
+        <h3>Sustainable Cleaning Trends</h3>
+        <ul>
+          <li><a href="https://www.greencleaninstitute.org/news">Green Clean Institute Updates</a></li>
+          <li><a href="https://www.greenguard.org/en/index.aspx">GREENGUARD Certification News</a></li>
+          <li><a href="https://www.epa.gov/greenerproducts">EPA Greener Products Portal</a></li>
+        </ul>
+        <button class="cta-button">Explore Green Cleaning</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="testimonials" class="page">
+  <div class="content-section">
+    <h1>Client Testimonials</h1>
+    <img src="https://cleaning-success.com/happy-clients.jpg" alt="Satisfied clients standing with cleaning team members after service completion" width="800" height="600">
+    
+    <!-- Home Cleaning Testimonials -->
+    <div class="testimonial">
+      <div class="testimonial-rating">
+        <span class="stars">★★★★★</span>
+      </div>
+      <p>"I've tried numerous cleaning services over the years, but 1 Handy Dandy Service is simply extraordinary! Their attention to detail is mind-blowing - they transformed my 5,000 sq ft home into an absolute masterpiece. From crystal chandeliers to intricate baseboards, every surface gleams with perfection. Their team doesn't just clean; they orchestrate a symphony of cleanliness!"</p>
+      <cite>- Victoria Armstrong, Luxury Home Owner</cite>
+    </div>
+
+    <div class="testimonial">
+      <div class="testimonial-rating">
+        <span class="stars">★★★★★</span>
+      </div>
+      <p>"As someone with severe allergies, finding a truly thorough cleaning service was crucial. The eco-friendly approach of 1 Handy Dandy Service has been life-changing! Their deep-cleaning process eliminated 99.9% of allergens, and their organic cleaning solutions mean I can breathe easily in my own home. The difference is simply remarkable!"</p>
+      <cite>- Dr. Rachel Chen, Medical Professional</cite>
+    </div>
+
+    <!-- Trash Bin Cleaning Testimonials -->
+    <div class="testimonial">
+      <div class="testimonial-rating">
+        <span class="stars">★★★★★</span>
+      </div>
+      <p>"Who knew trash bins could be this immaculate? The transformation is absolutely incredible! Their specialized sanitization process eliminated all odors - something I thought impossible. My neighbors actually asked if I bought new bins! The monthly service plan is worth every penny for the peace of mind and pristine results. Their technicians are true cleaning artisans!"</p>
+      <cite>- James Wellington III, Estate Manager</cite>
+    </div>
+
+    <div class="testimonial">
+      <div class="testimonial-rating">
+        <span class="stars">★★★★★</span>
+      </div>
+      <p>"Managing a 300-unit apartment complex means dealing with numerous waste bins. 1 Handy Dandy's bin cleaning service has revolutionized our waste management system. The bins are not just cleaned - they're thoroughly sanitized, deodorized, and treated with their proprietary bio-enzyme formula. Our residents constantly praise the difference. Simply outstanding service!"</p>
+      <cite>- Margaret Thompson, Property Management Director</cite>
+    </div>
+
+    <div class="testimonial">
+      <div class="testimonial-rating">
+        <span class="stars">★★★★★</span>
+      </div>
+      <p>"The dedication to excellence shown by their home cleaning team is unmatched! They discovered and restored a antique marble countertop I thought was beyond saving. Their attention to detail extends to every corner - even cleaning inside light fixtures and meticulously dusting my extensive book collection. They don't just clean, they curator my home's beauty!"</p>
+      <cite>- Eleanor Winters, Interior Designer</cite>
+    </div>
+
+    <div class="testimonial">
+      <div class="testimonial-rating">
+        <span class="stars">★★★★★</span>
+      </div>
+      <p>"As a restaurant owner, our waste bins used to be a constant challenge. 1 Handy Dandy's commercial bin cleaning service has been a game-changer! Their high-pressure steam cleaning and industrial-grade sanitization process have eliminated all traces of food waste odors. Health inspectors are consistently impressed. Absolutely worth the investment!"</p>
+      <cite>- Chef Antonio Romano, Fine Dining Restaurant Owner</cite>
+    </div>
+  </div>
+</div>
+
+<div class="chat-widget">
+  <div class="chat-button" id="chatButton">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+    </svg>
+  </div>
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      1 Handy Dandy Service Assistant
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="message bot-message">
+        Hello! How can I help you with our cleaning services today?
+      </div>
+    </div>
+    <div class="chat-input-container">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Type your message...">
+      <button class="chat-send" id="sendMessage">Send</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Contact Us: 1-800-HANDY1 | info@handydandyservice.com</p>
+  <p>© 2023 1 Handy Dandy Service. All rights reserved.</p>
+</footer>
+
+<script>
+document.querySelectorAll('nav a').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href').substring(1);
+    document.querySelectorAll('.page').forEach(page => {
+      page.classList.remove('active');
+    });
+    document.getElementById(targetId).classList.add('active');
+    window.scrollTo(0, 0);
+  });
+});
+
+document.querySelectorAll('.cta-button').forEach(button => {
+  button.addEventListener('click', () => {
+    alert('Thank you for your interest! Our team will contact you shortly.');
+  });
+});
+
+// Contact form submission
+document.getElementById('contactForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  try {
+    const formData = new FormData(e.target);
+    const response = await fetch('https://api.handydandyservice.com/contact', {
+      method: 'POST',
+      body: formData
+    });
+    
+    if (response.ok) {
+      alert('Thank you for contacting us! We will get back to you shortly.');
+      e.target.reset();
+    } else {
+      throw new Error('Something went wrong');
+    }
+  } catch (error) {
+    alert('Sorry, there was an error submitting your form. Please try again or contact us directly.');
+  }
+});
+
+// Chat functionality
+const chatButton = document.getElementById('chatButton');
+const chatWindow = document.getElementById('chatWindow');
+const chatInput = document.getElementById('chatInput');
+const sendMessage = document.getElementById('sendMessage');
+const chatMessages = document.getElementById('chatMessages');
+
+chatButton.addEventListener('click', () => {
+  chatWindow.classList.toggle('active');
+});
+
+async function sendChatMessage() {
+  const message = chatInput.value.trim();
+  if (!message) return;
+
+  // Add user message
+  addMessage(message, 'user');
+  chatInput.value = '';
+
+  try {
+    const response = await fetch('/api/ai_completion', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        prompt: `You are a helpful customer service agent for 1 Handy Dandy Service cleaning company. 
+                Respond to the following customer message in a friendly and professional manner: "${message}"
+                
+                <typescript-interface>
+                interface Response {
+                  reply: string;
+                }
+                </typescript-interface>
+                
+                <example>
+                {
+                  "reply": "I'd be happy to help you schedule a residential cleaning service! Our team is available Monday through Saturday, and we offer flexible scheduling options."
+                }
+                </example>`,
+        data: message
+      })
+    });
+    
+    const data = await response.json();
+    addMessage(data.reply, 'bot');
+  } catch (error) {
+    addMessage("I apologize, but I'm having trouble connecting right now. Please try again later or call us at 1-800-HANDY1.", 'bot');
+  }
+}
+
+function addMessage(text, sender) {
+  const messageDiv = document.createElement('div');
+  messageDiv.className = `message ${sender}-message`;
+  messageDiv.textContent = text;
+  chatMessages.appendChild(messageDiv);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+sendMessage.addEventListener('click', sendChatMessage);
+chatInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') sendChatMessage();
+});
+
+// Smooth scroll reveal animations
+const revealOptions = {
+  distance: '50px',
+  origin: 'bottom',
+  duration: 1000,
+  delay: 200,
+  easing: 'cubic-bezier(0.5, 0, 0, 1)',
+  interval: 300
+};
+
+ScrollReveal().reveal('.service-card', revealOptions);
+ScrollReveal().reveal('.testimonial', revealOptions);
+ScrollReveal().reveal('.blog-post', revealOptions);
+
+// Enhanced chat bot responses
+const enhancedResponses = {
+  greeting: "Welcome to 1 Handy Dandy Service! I'm your personal cleaning concierge, ready to help transform your space into an immaculate sanctuary. How may I assist you today?",
+  services: "Our premium cleaning services are crafted to exceed expectations. From residential sanctuaries to commercial masterpieces, we deliver excellence in every detail. Would you like to explore our signature services?",
+  booking: "I'll help you schedule the perfect cleaning experience. Our elite team of cleaning artisans is ready to showcase their expertise. When would you like to begin your journey to immaculate spaces?"
+};
+</script>
+
+</body></html>
